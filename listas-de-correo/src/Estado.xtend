@@ -19,6 +19,7 @@ class EstadoCerrado implements Estado {
 	
 	override subscribir(Usuario usuario, Lista lista) {
 		pendientes.add(usuario)
+		lista.notificarAdmin
 	}
 	
 }

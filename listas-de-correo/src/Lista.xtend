@@ -3,7 +3,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class Lista {
-	
+	Usuario admin
 	Estado tipo
 	List<Usuario> usuarios = newArrayList
 	
@@ -25,6 +25,13 @@ class Lista {
 	
 	def agregar(Usuario usuario) {
 		usuarios.add(usuario)
+	}
+	
+	def notificarAdmin() {
+		GMailSender.instance
+		.sendMail("nahuel.palumbo@gmail.com", "Estamos bien", "Esto es una demo en clase, por favor, funcionar!")
+		
+		admin.recibido = true
 	}
 	
 }
